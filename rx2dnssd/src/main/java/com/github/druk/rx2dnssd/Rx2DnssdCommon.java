@@ -226,7 +226,7 @@ abstract class Rx2DnssdCommon implements Rx2Dnssd {
     @Override
     public Flowable<BonjourService> register(@NonNull final BonjourService bs) {
         return createFlowable(emitter ->
-                mDNSSD.register(bs.getFlags(), bs.getIfIndex(), bs.getServiceName(), bs.getRegType(), bs.getDomain(), null, bs.getPort(),
+                mDNSSD.register(bs.getFlags(), bs.getIfIndex(), bs.getServiceName(), bs.getRegType(), bs.getDomain(), bs.getHostname(), bs.getPort(),
                         createTxtRecord(bs.getTxtRecords()), new Rx2RegisterListener(emitter)));
     }
 
